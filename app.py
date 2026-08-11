@@ -418,7 +418,6 @@ def lambda_handler(event, context):
 
     if not success:
         raise RuntimeError("Failed to stage data in Snowflake before MERGE")
-
     merge_columns = [f'"{col}"' for col in target_columns]
     update_columns = [col for col in target_columns if col != "NUMBER"]
     update_clause = ", ".join([f'tgt."{col}" = src."{col}"' for col in update_columns])
@@ -438,16 +437,9 @@ def lambda_handler(event, context):
 
     print(f"[{get_timestamp()}] Snowflake Load Completed")
     print(f"Rows Inserted: {nrows}")
-
     cursor.close()
     snowflake_conn.close()
     print("Snowflake connection is closed")
     #extra spaces removed
-    #extra spaces removed
-    #extra spaces removed
-    #extra spaces removed
-    #extra spaces removed
-    #extra spaces removed
-    #extra spaces removed
-    #extra spaces removed
+
 lambda_handler({}, {}) 
