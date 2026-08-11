@@ -335,25 +335,6 @@ def lambda_handler(event, context):
         for col in merged.columns
     ]
 
-
-    # with snowflake_conn.cursor() as source_cursor:
-    #     source_cursor.execute(
-    #         f'DESCRIBE TABLE "{target_database}"."{target_schema}"."SERVICENOW_INCIDENTS"'
-    #     )
-    #     table_columns = [row[0].upper() for row in source_cursor.fetchall()]
-
-    # incoming_columns = merged.columns.tolist()
-    # matched_columns = [col for col in incoming_columns if col in table_columns]
-    # dropped_columns = [col for col in incoming_columns if col not in table_columns]
-
-    # if dropped_columns:
-    #     print(f"Dropping non-target columns: {dropped_columns}")
-
-    # if not matched_columns:
-    #     raise ValueError("No matching columns found between merged data and SERVICENOW_INCIDENTS table")
-
-    # merged = merged[matched_columns]
-
     target_columns = [
         "NUMBER",
         "SHORT_DESCRIPTION",
@@ -385,19 +366,6 @@ def lambda_handler(event, context):
     # print(merged.head(10).to_dict(orient="records"))
     print(f"[{get_timestamp()}] Data consolidation complete")
 
-
-    # # STEP 6 — Load into Snowflake
-    # success, nchunks, nrows, _ = write_pandas(
-    #     snowflake_conn,
-    #     merged,
-    #     "SERVICENOW_INCIDENTS",
-    #     database=target_database,
-    #     schema=target_schema
-    #     # auto_create_table=True
-    # )
-
-    # print(f"[{get_timestamp()}] Snowflake Load Completed")
-    # print(f"Rows Inserted: {nrows}")
 
     # STEP 6 — Upsert into Snowflake (update existing + insert new on NUMBER)
     stage_table = f"SERVICENOW_INCIDENTS_STAGE_{datetime.now().strftime('%Y%m%d%H%M%S')}"
