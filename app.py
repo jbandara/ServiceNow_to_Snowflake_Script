@@ -323,10 +323,7 @@ def lambda_handler(event, context):
         merged = merged.merge(tags_df[["sys_id","tags"]], on="sys_id", how="left")
     
     merged = merged.merge(notes_df, on="number", how="left")
-
     # merged.columns = [str(col).strip().replace(" ", "_").upper() for col in merged.columns]
-
-    
     merged.columns = [
         str(col).strip()
         .replace(" ", "_")
