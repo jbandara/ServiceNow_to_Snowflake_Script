@@ -164,7 +164,8 @@ def fetch_work_notes_for_incidents(session, incident_df):
         # all_notes.extend(notes)
 
     if notes_df.empty:
-        print("No work notes data")
+        print("No work notes data")  
+        
         return []
 
     print(f"work notes count: {len(notes_df)}")
