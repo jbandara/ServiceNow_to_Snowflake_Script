@@ -2,8 +2,6 @@ import requests
 import pandas as pd
 import re
 import os
-# import psycopg2
-# import psycopg2.extras
 import json
 from datetime import datetime, timezone, timedelta
 from cryptography.hazmat.backends import default_backend
@@ -15,7 +13,7 @@ from cryptography.hazmat.primitives import serialization
 
 requests.packages.urllib3.disable_warnings()
  
-BASE_URL = "https://kmartaus.service-now.com"
+BASE_URL = "https://kmartaus-dev.service-now.com"
  
 TAGS_API = f"{BASE_URL}/api/kmw/get_inc_tag/getTag"
 INCIDENT_API = f"{BASE_URL}/api/now/table/incident"
