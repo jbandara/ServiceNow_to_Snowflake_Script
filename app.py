@@ -444,6 +444,10 @@ def lambda_handler(event, context):
     print("Snowflake connection is closed")
     #extra spaces removed
     #extra spaces removed
-        #extra spaces removed
+    #extra spaces removed
+    #extra spaces removed
+    #extra spaces removed
+    #extra spaces removed
+    #extra spaces removed
     #extra spaces removed
 lambda_handler({}, {}) 
