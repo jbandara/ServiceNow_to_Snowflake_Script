@@ -21,9 +21,8 @@ TAGS_API = f"{BASE_URL}/api/kmw/get_inc_tag/getTag"
 INCIDENT_API = f"{BASE_URL}/api/now/table/incident"
 WORKNOTES_API = f"{BASE_URL}/api/now/table/sys_journal_field"
 
-USERNAME = "SVCKRISPRT"
-PASSWORD = ",oA!pH__?g_Vhi)T8lH_SynW4t0)Iy4=:)}jFsA4"
-
+USERNAME = "123"
+PASSWORD = "ABC"
 ist = timezone(timedelta(hours=5, minutes=30))
 def get_timestamp():
     return datetime.now(ist).strftime("%Y-%m-%d_%H-%M-%S")
@@ -99,13 +98,13 @@ def fetch_tags_for_incidents(session, assignment_groups):
         print("No tags")
     else:
         print(f"tags count: {len(tags_df)}")
-        # print(f"first 10 tags length: {len(tags_df.head(10))}")
-        # print("first 10 tags records:")
-        # print(
-        #     tags_df[['incident_number', 'tags']]
-        #     .head(10)
-        #     .to_json(orient="records", indent=2)
-        # )
+        print(f"first 10 tags length: {len(tags_df.head(10))}")
+        print("first 10 tags records:")
+        print(
+             tags_df[['incident_number', 'tags']]
+             .head(10)
+             .to_json(orient="records", indent=2)
+         )
     return tags_df
 
 # STEP 3 — Work Notes
@@ -200,7 +199,7 @@ def jira_extraction(notes_df):
     return notes_df
 def lambda_handler(event, context):
     print('Lambda function has started')
-    SNOWFLAKE_TOKEN = "5cjAEsZ47LERssUdg"
+    SNOWFLAKE_TOKEN = "ABC"
     # SNOWFLAKE_TOKEN = os.environ['SNOWFLAKE_TOKEN']
 
     # secret_response = get_secret()
