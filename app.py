@@ -21,15 +21,12 @@ TAGS_API = f"{BASE_URL}/api/kmw/get_inc_tag/getTag"
 INCIDENT_API = f"{BASE_URL}/api/now/table/incident"
 WORKNOTES_API = f"{BASE_URL}/api/now/table/sys_journal_field"
 
-
 USERNAME = "SVCKRISPRT"
 PASSWORD = ",oA!pH__?g_Vhi)T8lH_SynW4t0)Iy4=:)}jFsA4"
-
 
 ist = timezone(timedelta(hours=5, minutes=30))
 def get_timestamp():
     return datetime.now(ist).strftime("%Y-%m-%d_%H-%M-%S")
-
 
 def chunk_items(items, chunk_size):
     for index in range(0, len(items), chunk_size):
@@ -201,9 +198,6 @@ def jira_extraction(notes_df):
     # print("jira_extraction first 10 JIRA_CARD values:")
     print([])
     return notes_df
-
-
-
 def lambda_handler(event, context):
     print('Lambda function has started')
     SNOWFLAKE_TOKEN = "5cjAEsZ47LERssUdg"
